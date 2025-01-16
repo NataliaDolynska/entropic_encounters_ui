@@ -25,9 +25,13 @@ societies, fostering equity, innovation, and dialogue.
 The UI is designed to guide players through the following phases:
 
 **1. Starting the Mission**
+
 **2. The Encounter Begins**
+
 **3. Selection of a Planet 🪐**
+
 **4. Learning About the Planet**
+
 **5. Learning About the Society**
 
 ## 🖥️ How to Run the UI
