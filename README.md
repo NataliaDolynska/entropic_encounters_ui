@@ -87,4 +87,4 @@ Make sure you have the following installed:
 ## 📄 License
 
 This project is licensed under the **Apache 2.0 License**. See the LICENSE file for details.
-Please note: Public deployments of this game must visibly credit the original creator, **Prof. Dr. Laura Bechthold**, on
+Please note: Public deployments of this game must visibly credit the original creator, **Prof. Dr. Laura Bechthold**, on the main UI.
