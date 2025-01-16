@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% partialdef questions_list %}
+{% block content %}
+<div id="questions-list">
+    <ul class="list-disc list-inside">
+        {% for question in questions %}
+        <li class="text-sm">{{ question }}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
+{% endpartialdef %}

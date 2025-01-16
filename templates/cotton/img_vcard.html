@@ -1,0 +1,29 @@
+{% load static %}
+
+
+<div class="card card-side  glass" x-data="{ keyName: '{{ key_name }}', keyValue: '{{ key_value }}' }">
+    <figure>
+        <img class="ml-3  h-48 w-96 object-cover rounded-2xl"
+             src="/static/images/{{ image }}"
+             alt="img"/>
+    </figure>
+    <div class="card-body">
+        <h2 class="card-title">{{ title }}</h2>
+        <p class="text-gray-200 text-left">{{ description }}</p>
+        <div class="card-actions justify-end">
+            {% if redirect %}
+            <template x-if="keyName && keyValue">
+                <a @click="$store.global_data[keyName] = keyValue" class="pt-5" hx-get="{{ redirect }}" hx-target="#component" hx-swap="innerHTML">
+                    <button class="btn btn-primary btn-outline">Select</button>
+<!--                                        <span x-text="$store.global_data['role']"></span>-->
+                </a>
+            </template>
+            <template x-if="!(keyName && keyValue)">
+                <div class="pt-5" hx-get="{{ redirect }}" hx-target="#component" hx-swap="innerHTML">
+                    <button class="btn btn-primary btn-outline">Select</button>
+                </div>
+            </template>
+            {% endif %}
+        </div>
+    </div>
+</div>

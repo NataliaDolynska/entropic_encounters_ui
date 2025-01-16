@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div id="component">
+    <div class="grid grid-cols-2 gap-6 py-10">
+        <div>
+            <h2 class="text-2xl font-semibold">Individual Reflection</h2>
+            <textarea class="textarea textarea-bordered w-full" placeholder="Your thoughts..."></textarea>
+        </div>
+
+        <div>
+            <h2 class="text-2xl font-semibold">Collaborative Recommendations</h2>
+            <div class="space-y-4">
+                <p class="bg-gray-100 p-4 rounded-lg">Recommendation 1...</p>
+                <p class="bg-gray-100 p-4 rounded-lg">Recommendation 2...</p>
+                <p class="bg-gray-100 p-4 rounded-lg">Recommendation 3...</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

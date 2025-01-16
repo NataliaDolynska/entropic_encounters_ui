@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% partialdef society_selection %}
+{% block content %}
+<div id="component">
+    <div class="text-center py-10 px-6">
+        <h1 class="text-4xl font-extrabold text-gray-300">Select a Society</h1>
+        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for society in societies.values %}
+            <c-img-card image="{{ society.image }}"
+                        title="{{ society.name }}"
+                        description="{{ society.short_description }}"
+                        redirect='{{ society.redirect }}/{{ society.name|lower }}/'
+                        key_name="society"
+                        key_value="{{ society.name }}"
+            ></c-img-card>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% endpartialdef %}

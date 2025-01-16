@@ -37,7 +37,7 @@ To run the **Entropic Encounters** UI on your local machine, follow these steps:
 
 Make sure you have the following installed:
 
-- **Python 3.8 or higher**
+- **Python 3.10 or higher**
 - **[uv](https://astral.sh/blog/uv)** (Python package manager)
 - **[node-js](https://nodejs.org/en/download)**  v19
 

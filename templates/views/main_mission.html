@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+
+{% partialdef main_mission %}
+{% block content %}
+<div id="component">
+    <div class="text-center py-10">
+        <h1 class="text-4xl font-extrabold text-gray-400">Welcome to your Mission!</h1>
+        <p class="mt-4 text-lg text-gray-400">Let‘s get started.</p>
+
+        <div class="mt-10 space-y-4">
+            <a hx-get="{% url 'role_selection' %}" hx-target="#component" hx-swap="innerHTML"
+               class="btn btn-primary w-1/2">
+                Start Game
+            </a>
+            <label for="drawer" class="drawer-button btn-outline  btn btn-secondary w-1/2">
+                How to Play
+            </label>
+        </div>
+    </div>
+    <div class="flex justify-center">
+        <div class="my-3  card glass  w-2/3 p-4">
+            <div class="flex justify-center">
+                <h3 class="text-2xl font-semibold mb-4">Mission</h3>
+            </div>
+            <p>Planet Earth stands at a critical crossroads. The impacts of climate change have become
+                severe, hitting different regions with unprecedented challenges. Yet, despite the urgency, the
+                same privileged voices dominate decision-making, stifling innovation and leaving many
+                potential solutions unexplored. The need for new perspectives, fresh ideas, and inclusive
+                approaches has never been more pressing.</p>
+            <p>In response to this crisis, humanity has launched a bold mission: to seek out new solutions
+                beyond Earth’s boundaries. We believe that on distant planets—where diverse societies have
+                faced and overcome their own environmental challenges—lies the inspiration and knowledge
+                we need to adapt and thrive back home.</p>
+            <p>The World Council for Climate Adaptation has assembled a group of courageous and curious
+                explorers for a groundbreaking mission and journey to three distant planets, each home to a
+                society founded by former Earthlings who once belonged to marginalized or underrepresented
+                groups. These pioneers, who left Earth seeking a new way of life, have since established
+                thriving communities in harsh, unforgiving environments. Their remarkable ability to adapt and
+                innovate has allowed them to overcome the challenges of their new worlds.</p>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
+{% endpartialdef %}

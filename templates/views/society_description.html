@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% partialdef society_description %}
+
+{% block content %}
+<div id="component">
+    <div
+            class="hero h-[80vh] lg:h-[75vh] bg-base-200"
+            style="background-image: url('/static/images/{{ society.image }}');">
+        <div class="hero-overlay bg-opacity-10"></div>
+        <div class="hero-content text-neutral-content text-center">
+            <div class="max-w-md">
+                <h1 class="mb-5 text-5xl font-bold">{{ society.name }}</h1>
+                <div class="bg-gray-100 bg-opacity-90 p-6 rounded-lg shadow-lg text-base-300">
+                    <p class="text-lg leading-relaxed font-light">
+                        {{ society.short_description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Detailed Information Section -->
+    <section class="bg-gray-900 text-gray-100 py-12 px-6 lg:px-20">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-6">Overview</h2>
+            <p class="text-lg mb-8">{{ society.description }}</p>
+
+
+            <div class="mt-12 card bg-gray-800 p-4 mb-8">
+                <h3 class="text-2xl font-semibold mb-4">Fact Sheet</h3>
+                <ul class="list-disc list-inside text-sm text-gray-100 space-y-2">
+                    {% for item in society.fact_sheet.items %}
+                    <li>{{ item.0 }} : {{ item.1 }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="card bg-gray-800 p-4 mb-8">
+                <h3 class="text-2xl font-semibold mb-4">Challenges Faced on Earth</h3>
+                <ul class="list-disc text-sm list-inside text-gray-100 space-y-2">
+                    {% for item in society.challenges.earth.items %}
+                    <li>{{ item.0 }} : {{ item.1 }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="card bg-gray-800 p-4 mb-8">
+                <h3 class="text-2xl font-semibold mb-4">Overcome Challenges on New Planet:</h3>
+                <ul class="list-disc text-sm list-inside text-gray-100 space-y-2">
+                    {% for item in society.challenges.new_planet.items %}
+                    <li>{{ item.0 }} : {{ item.1 }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        <div class="flex justify-center mt-10">
+            <button
+                    x-bind:hx-get="'/{{ society.redirect }}/' + $store.global_data['role'] + '/'"
+                    hx-target="#component" hx-swap="innerHTML" class="btn btn-primary">Next
+            </button>
+        </div>
+
+    </section>
+</div>
+
+
+{% endblock %}
+{% endpartialdef %}

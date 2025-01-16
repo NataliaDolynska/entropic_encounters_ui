@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load partials %}
+
+
+{% partialdef home %}
+{% block content %}
+
+<div id="component">
+    <div
+            class="hero min-h-screen bg-base-200 object-fill"
+            style="background-image: url('/static/images/brief/base.jpg');">
+        <div class="hero-overlay bg-opacity-10"></div>
+        <div class="hero-content text-neutral-content text-center">
+            <div class="max-w-md">
+                <div class="bg-gray-100 bg-opacity-90 p-6 rounded-lg shadow-lg text-base-300">
+                    <h1 class="text-4xl font-bold">Welcome to Entropic Encounters</h1>
+                    <h1 class="text-1xl font-bold">Explore distant worlds and learn from diverse societies!</h1>
+                    <div class="text-center mt-2">
+                        <a hx-get="{% url 'main_mission' %}" hx-target="#component" hx-swap="innerHTML"
+                           class="btn btn-primary ">
+                            Start Your Mission
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
+{% endpartialdef %}

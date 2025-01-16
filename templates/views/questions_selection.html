@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% partialdef questions_selection %}
+{% block content %}
+<div id="component">
+    <div class="px-6 text-center py-10">
+        <h1 class="text-4xl font-extrabold text-gray-300 mb-10">Select Questions Category</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {% for questions_category in questions_categories.items %}
+            <c-q-img-card image="{{ questions_category.1.image }}"
+                          title="{{ questions_category.0 }}"
+                          description="{{ questions_category.1.description }}"
+                          redirect="{% url 'gameplay' %}"
+                          key_name="questions"
+                          key_value="{{ questions_category.0 }}"
+            ></c-q-img-card>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+{% endblock %}
+{% endpartialdef %}

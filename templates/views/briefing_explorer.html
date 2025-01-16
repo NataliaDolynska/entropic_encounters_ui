@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% partialdef briefing_explorer %}
+
+{% block content %}
+<div id="component">
+    <div
+            class="hero h-[80vh] lg:h-[75vh] bg-base-200"
+            style="background-image: url('/static/images/brief/base.jpg');">
+        <div class="hero-overlay bg-opacity-10"></div>
+        <div class="hero-content text-neutral-content text-center">
+            <div class="max-w-md">
+                <h1 class="mb-5 text-5xl font-bold">{{ title }}</h1>
+            </div>
+        </div>
+    </div>
+    <!-- Detailed Information Section -->
+    <section class="bg-gray-900 text-gray-100 py-12 px-6 lg:px-20">
+        <div class="mt-12 card bg-gray-800 p-4">
+            <div class="flex justify-center mt-10">
+                <h3 class="text-2xl font-semibold mb-4">{{ title }}</h3>
+            </div>
+            {% for brief in briefs %}
+            <p class="text-gray-100 leading-relaxed">{{ brief }}</p>
+            {% endfor %}
+        </div>
+
+
+        <div class="flex justify-center mt-10">
+<!--                    x-bind:hx-get="'/{{ redirect }}/' + $store.global_data['role'] + '/'"-->
+            <button
+                    hx-get="{% url 'questions_selection' %}"
+                    hx-target="#component" hx-swap="innerHTML" class="btn btn-primary">Go to Questions
+            </button>
+        </div>
+
+    </section>
+</div>
+
+
+{% endblock %}
+{% endpartialdef %}

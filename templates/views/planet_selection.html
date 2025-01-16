@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% partialdef planet_selection %}
+{% block content %}
+<div id="component">
+    <div class="px-6 text-center py-10">
+        <h1 class="text-4xl font-extrabold text-gray-300 mb-10">Select a Planet</h1>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for planet in planets.values %}
+            <c-img-card image="{{ planet.image_small }}"
+                        title="{{ planet.name }}"
+                        description="{{ planet.short_description }}"
+                        redirect='{{ planet.redirect }}/{{ planet.name|lower }}/'
+                        key_name="planet"
+                        key_value="{{ planet.name }}"
+            ></c-img-card>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
+{% endpartialdef %}

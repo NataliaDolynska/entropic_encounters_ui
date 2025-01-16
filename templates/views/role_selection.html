@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% partialdef role_selection %}
+{% block content %}
+<div class="p-6 text-center py-10">
+    <h1 class="text-4xl font-extrabold text-gray-300">Select Your Role</h1>
+    <div class="mt-16 grid grid-cols-2 gap-6">
+        {% for role in roles.items %}
+        <c-img-vcard image="{{ role.1.image }}"
+                     title="{{ role.1.name }}"
+                     description="{{ role.1.description }}"
+                     redirect='{% url ""|add:role.1.redirect %}'
+                     key_name="role"
+                     key_value="{{ role.0 }}"
+        ></c-img-vcard>
+
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+{% endpartialdef %}

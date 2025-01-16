@@ -1,0 +1,203 @@
+{% load static tailwind_tags %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Entropic Encounters</title>
+
+    <!-- HTMX Scripts -->
+    <script src="https://unpkg.com/htmx.org@1.8.5" defer></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/ws.js" defer></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+
+    <!-- Tailwind & DaisyUI -->
+    {% tailwind_css %}
+    <link
+            href="https://cdn.jsdelivr.net/npm/daisyui@2.6.0/dist/full.css"
+            rel="stylesheet"
+            type="text/css"
+    />
+    <link rel="stylesheet" href="{% static 'css/dist/styles.css' %}">
+</head>
+
+<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+      class="flex flex-col min-h-screen bg-gradient-to-r from-blue-800 via-indigo-900 to-black text-gray-200 ">
+<div class="navbar bg-base-100">
+    <div class="navbar-start">
+        <a href="/" class="text-xl">Entropic Encounters | A Serious Game</a>
+    </div>
+    <div class="navbar-end hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+            <label for="drawer" class="mr-4 drawer-button btn btn-secondary btn-outline btn-sm">How to Play</label>
+
+        </ul>
+    </div>
+</div>
+
+<div class="drawer drawer-end">
+    <input id="drawer" type="checkbox" class="drawer-toggle"/>
+    <div class="drawer-content">
+        <!-- Main Content Section -->
+        <main class="flex-grow">
+
+
+            <div id="component">
+                {% block content %}
+                <!-- Add your page-specific content here -->
+                {% endblock %}
+            </div>
+        </main>
+    </div>
+    <div class="drawer-side">
+        <label for="drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+        <div class="bg-gray-900 text-gray-100 font-sans">
+            <header class="bg-gray-800 py-5 shadow-md">
+                <div class="container mx-auto text-center">
+                    <h1 class="text-4xl font-bold text-primary">Entropic Encounters</h1>
+                    <p class="text-lg mt-2">Exploring Inclusive Societies on Distant Worlds</p>
+                </div>
+            </header>
+
+            <main class="container mx-auto my-10 px-5 lg:px-20">
+                <section class="mb-12">
+                    <div class="prose max-w-none text-gray-200">
+                        <h2 class="text-2xl font-semibold text-secondary">Game Overview</h2>
+                        <p>
+                            Entropic Encounters is an immersive and collaborative game designed to explore the
+                            possibilities of building inclusive, resilient, and sustainable futures by using Science
+                            Fiction Thinking.
+                            Participants embark on an interstellar journey to learn from diverse, thriving societies on
+                            distant planets.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="prose max-w-none">
+                        <h2 class="text-2xl font-semibold text-secondary">Learning Goals</h2>
+                        <ul class="list-disc pl-6">
+                            <li>Foster inclusivity by understanding how design can value and empower all individuals.
+                            </li>
+                            <li>Promote equity by exploring solutions to systemic inequalities.</li>
+                            <li>Encourage innovative thinking through futuristic and science fiction scenarios.</li>
+                            <li>Connect fiction to reality by translating lessons into actionable strategies.</li>
+                            <li>Understand the value of diversity in creating resilient societies.</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="prose max-w-none">
+                        <h2 class="text-2xl font-semibold text-secondary">Game Phases</h2>
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <ol class="list-decimal pl-6 space-y-4">
+                                <li>
+                                    <strong>Starting the Mission:</strong> Build teams, decide roles (explorers and
+                                    celestial citizens), and select planets or societies.
+                                </li>
+                                <li>
+                                    <strong>The Encounter Begins:</strong> Explorers and celestial citizens start their
+                                    interaction using monologues and guiding questions.
+                                </li>
+                                <li>
+                                    <strong>Learning About the Society:</strong> Engage in discussions about the
+                                    society's values, challenges, and achievements.
+                                </li>
+                                <li>
+                                    <strong>Synthesis of Insights:</strong> Reflect and collaborate to develop key
+                                    recommendations inspired by the exploration.
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="prose max-w-none">
+                        <h2 class="text-2xl font-semibold text-secondary">Mission Briefing</h2>
+                        <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+                            <p>
+                                As explorers, your mission is to gather recommendations and insights to address Earth’s
+                                challenges by learning from inclusive and resilient societies.
+                            </p>
+                            <ul class="list-disc pl-6 mt-4">
+                                <li>Choose your destination from Aridara, Hydros, or Tempestia.</li>
+                                <li>Engage in dialogue with celestial citizens to understand their solutions and
+                                    innovations.
+                                </li>
+                                <li>Synthesize findings into actionable recommendations for Earth.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="mb-12">
+                    <div class="prose max-w-none">
+                        <h2 class="text-2xl font-semibold text-secondary">Planet Overviews</h2>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="bg-gray-800 p-4 rounded-lg shadow-md">
+                                <h3 class="text-xl text-primary">Aridara</h3>
+                                <p>A desert world where inhabitants have mastered survival amidst heat and scarcity.</p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg shadow-md">
+                                <h3 class="text-xl text-primary">Hydros</h3>
+                                <p>A water-covered planet with floating cities, thriving in harmony with marine
+                                    ecosystems.</p>
+                            </div>
+                            <div class="bg-gray-800 p-4 rounded-lg shadow-md">
+                                <h3 class="text-xl text-primary">Tempestia</h3>
+                                <p>A storm-ravaged world where society thrives by harnessing volatile weather.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- Custom Scripts -->
+
+</body>
+
+<footer class="footer footer-center bg-blue-700 text-white p-4 mt-auto text-center">
+    <div>
+        <p id="co" class="self-center">
+            <span id="l"></span>
+        </p>
+    </div>
+</footer>
+
+
+<script>
+    urls = new URL(document.URL)
+
+    console.log("URL: " + urls.pathname);
+
+    document.addEventListener('alpine:init', () => {
+        Alpine.store('global_data', {
+            role: '',
+            planet: '',
+            society: '',
+        })
+    })
+
+
+    const c = "MjAyNSBFbnRyb3BpYyBFbmNvdW50ZXJzIHwgQSBTZXJpb3VzIEdhbWUgIGNyZWF0ZWQgYnkgUHJvZi4gRHIuIExhdXJhIEJlY2h0aG9sZCB8";
+    const cl = "aHR0cHM6Ly9sYXVyYWJlY2h0aG9sZC5jb20v";
+    const n = "IFVJIG1hZGUgYnkgTmF0YWxpYSBEb2x5bnNrYQ==";
+    const u = "aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL25hdGFsaWEtZC1hMzgwODAxMjkv";
+    const l = `<a href="${atob(u)}" target="_blank"  class=" hover:text-yellow-400">${atob(n)}</a>`;
+    const b = `<a href="${atob(cl)}" target="_blank"  class=" hover:text-yellow-400">${atob(c)}</a>`;
+    document.getElementById("co").innerHTML = `${b}<span id="l"></span>`;
+    document.getElementById("l").innerHTML = l;
+</script>
+</html>
+

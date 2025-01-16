@@ -1,0 +1,14 @@
+[project]
+name = "entropic-encounters"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "django-browser-reload>=1.17.0",
+    "django-cotton>=1.5.2",
+    "django-htmx>=1.21.0",
+    "django-tailwind>=3.8.0",
+    "django-template-partials>=24.4",
+    "django>=5.1.4",
+]

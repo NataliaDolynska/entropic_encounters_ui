@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% partialdef planet_description %}
+{% block content %}
+<div id="component">
+    <div
+            class="hero h-[80vh] lg:h-[75vh] bg-base-200"
+            style="background-image: url('/static/images/{{ planet.image_large }}');">
+        <div class="hero-overlay bg-opacity-10"></div>
+        <div class="hero-content text-neutral-content text-center">
+            <div class="max-w-md">
+                <h1 class="mb-5 text-5xl font-bold">{{ planet.name }}</h1>
+                <div class="bg-gray-100 bg-opacity-90 p-6 rounded-lg shadow-lg text-base-300">
+                    <p class="text-lg leading-relaxed font-light">
+                        {{ planet.short_description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Detailed Information Section -->
+    <section class="bg-gray-900 text-gray-100 py-12 px-6 lg:px-20">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-4xl font-bold mb-6">Overview</h2>
+            <p class="text-lg mb-8">
+                {{ planet.planet_brief }}
+            </p>
+
+            <!-- Planetary Information -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Environment -->
+                <div class="card bg-gray-800 p-4">
+                    <h3 class="text-2xl font-semibold mb-4">Environment</h3>
+                    <ul class="list-disc text-sm list-inside text-gray-100 space-y-2">
+                        {% for item in planet.planetary_information_sheet.environment %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- Ecosystems -->
+                <div class="card bg-gray-800 p-4">
+                    <h3 class="text-2xl font-semibold mb-4">Ecosystems</h3>
+                    <ul class="list-disc text-sm list-inside text-gray-100 space-y-2">
+                        {% for item in planet.planetary_information_sheet.ecosystems %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- Natural Resources -->
+                <div class="card bg-gray-800 p-4">
+                    <h3 class="text-2xl font-semibold mb-4">Natural Resources</h3>
+                    <ul class="list-disc list-inside text-gray-100 space-y-2">
+                        {% for item in planet.planetary_information_sheet.natural_resources %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Scientific Background -->
+
+            <div class="mt-12 card bg-gray-800 p-4">
+                <h3 class="text-2xl font-semibold mb-4">Scientific Background</h3>
+                <p class="text-gray-100 text-sm leading-relaxed">{{ planet.scientific_background }}</p>
+            </div>
+
+        </div>
+        <div class="flex justify-center mt-10">
+            <button
+                    x-bind:hx-get="'/{{ planet.redirect }}/' + $store.global_data['role'] + '/'"
+                    hx-target="#component" hx-swap="innerHTML"
+                    class="btn btn-primary">Next
+            </button>
+        </div>
+    </section>
+
+</div>
+
+</section>
+</div>
+
+
+{% endblock %}
+{% endpartialdef %}
