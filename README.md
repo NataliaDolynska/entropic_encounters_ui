@@ -1,4 +1,5 @@
-# ENTROPIC-ENCOUNTERS-UI
+# Entropic Encounters UI
+<em>Entropic Encounters game UI implementation</em>
 
 ## 🤝 Acknowledgments
 
