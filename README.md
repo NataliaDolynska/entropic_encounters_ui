@@ -23,6 +23,9 @@ societies, fostering equity, innovation, and dialogue.
 ## Starting a Mission
 ![](https://github.com/NataliaDolynska/entropic_encounters_ui/blob/master/docs/gifs/main.gif)
 
+## Chat interaction
+![](https://github.com/NataliaDolynska/entropic_encounters_ui/blob/master/docs/gifs/chat.gif)
+
 ## 🌌 Game Phases in the UI
 
 The UI is designed to guide players through the following phases:
