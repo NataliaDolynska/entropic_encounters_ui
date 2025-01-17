@@ -20,6 +20,9 @@ resilient, and sustainable futures using Science Fiction Thinking. This reposito
 game, which guides players through their interstellar journey to distant planets and helps them engage with diverse
 societies, fostering equity, innovation, and dialogue.
 
+## Starting a Mission
+![](https://github.com/NataliaDolynska/entropic_encounters_ui/blob/master/docs/gifs/main.gif)
+
 ## 🌌 Game Phases in the UI
 
 The UI is designed to guide players through the following phases:
