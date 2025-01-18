@@ -180,6 +180,8 @@ ADDITIONAL TERMS (“UI ATTRIBUTION”)
 In addition to the terms of the Apache License 2.0, the following extra conditions apply:
 
 1. Visible Attribution Requirement
+   Public deployments of this game must visibly credit the original game creator, Prof. Dr. Laura Bechthold, on the main UI.
+
    Any public use or deployment of this software, or derivative works thereof, must display the text
    “Made by Natalia Dolynska” and prominently in the primary user interface or an equally prominent location.
 
