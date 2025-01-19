@@ -94,3 +94,7 @@ Make sure you have the following installed:
 
 This project is licensed under the **Apache 2.0 License**. See the LICENSE file for details.
 Please note: Public deployments of this game must visibly credit the original creator, **Prof. Dr. Laura Bechthold**, on the main UI.
+
+Any public use or deployment of this software or derivative works thereof must display the text **“Made by Natalia Dolynska”** prominently in the primary user interface or an equally prominent location. 
+
+Additionally, in case of code modification, the names of contributors should be included on a separate page with contact data or any additional information that will be considered necessary by contributors.
